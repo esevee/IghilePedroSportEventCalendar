@@ -55,6 +55,30 @@ nav {
   background-color: #fff;
 }/*end of hamburger*/
 
+/* Media query Mobile view: navbar */
+@media (max-width: 768px) {
+  .navLinks {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 200px;
+      border-radius: 5px;
+      padding: 10px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navLinks.active {
+      display: flex;
+  }
+
+  .hamburger {
+      display: flex;
+  }
+}/* Media query Mobile view: navbar/hamburger ends */
+
 
 .calendar { /*grid format*/
   display: grid;
