@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>Sports Event Calendar</title>
+</head>
+<body>
+  <!--Navbar-->
+  <nav>
+      <div class="logo">
+        <a href="index.html"><img src="./img/logoSport.png" alt="logo"></a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+      <div class="navLinks">
+          <a href="index.html">Home</a>
+          <a href="details.html">Details</a>
+      </div>
+  </nav><!--end of navbar-->
+
+  <h1>Top Sports Event Calendar</h1>
+
+  <div id="calendar" class="calendar"></div>
+  <h2>Add a sport event</h2>
+  
+  <div class="addSportEvent">
+    <form id="eventForm"> <!--users input for a new event  date, time, sport, teams/participants-->
+      <input type="date" id="eventDate" required>
+      <input type="time" id="eventTime" required>
+      <input type="text" id="sportName" placeholder="Sport Name" required>
+      <input type="text" id="participants" placeholder="Teams/Participants" required>
+      <button type="submit">Add Event</button>
+    </form>
+  </div>
+  
+  <div id="eventDetails" class="detailsOfEvent"></div>
+
+  <div class="sampleEvent"></div>
+
+
+  <script src="main.js"></script>
+</body>
+</html>

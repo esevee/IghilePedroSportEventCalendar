@@ -1,0 +1,105 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+
+/*Navbar zone*/
+.logo img {
+  height: 50px; 
+  width: auto;
+  transition: all 0.3s ease; 
+}
+
+nav {
+  background-color: #20215a;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.navLinks a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: #d27b18;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+}/*end of hamburger*/
+
+
+.calendar { /*grid format*/
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+.day, .header {
+  padding: 8px;
+  border: 1px solid #d27b18;
+  border-radius: 10px;
+  text-align: center;
+}
+.header {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+.day {
+  background-color: #fff;
+}
+.eventDay {
+  background-color: #d27b18;
+  cursor: pointer;
+}
+.eventDay:hover {
+  background-color: #c68f50;
+  border-radius: 8px;
+}
+
+input, button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+button {
+  background-color: #18184e;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgba(24,24,78, 0.7);
+}
+.detailsOfEvent {
+  margin-top: 20px;
+}
+
