@@ -103,3 +103,64 @@ let events = {
   // Initialize calendar
   generateCalendar();
   
+  //fetching matches
+  async function fetchAndDisplayMatches() {
+    try {
+        // fetch the json data
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const jsonData = await response.json();
+        
+        // getting the data from json
+        const matches = jsonData.data;
+
+        // arrays of days of the week
+        const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        // Get the container element
+        const matchesContainer = document.getElementById('matches');
+
+        // remove previous matches
+        matchesContainer.innerHTML = '';
+
+        // Loop through the matches and display each one
+        matches.forEach(match => {
+            const matchDiv = document.createElement('div');
+            matchDiv.classList.add('match');
+
+            const homeTeam = match.homeTeam ? match.homeTeam.name : 'TBD';
+            const awayTeam = match.awayTeam ? match.awayTeam.name : 'TBD';
+            const dateVenue = match.dateVenue;
+
+            let dayName = 'Invalid Date';
+            if (dateVenue) {
+                const date = new Date(dateVenue);
+                dayName = daysOfWeek[date.getDay()];
+            }
+
+            const result = match.result && match.result.homeGoals !== null
+                ? `${match.result.homeGoals} - ${match.result.awayGoals}`
+                : 'Match not played yet';
+
+               matchDiv.innerHTML = `
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">${homeTeam} vs ${awayTeam}</h3>
+                        <p class="card-text"><strong>Date:</strong> ${dayName}. ${dateVenue}</p>
+                        <p class="card-text"><strong>Time:</strong> ${match.timeVenueUTC}</p>
+                        <p class="card-text"><strong>Sport:</strong> ${match.sport}</p>
+                        <p class="card-text"><strong>Result:</strong> ${result}</p>
+                    </div>
+                </div>
+            `;
+
+            matchesContainer.appendChild(matchDiv);
+        });
+    } catch (error) {
+        console.error('Error fetching or displaying matches:', error);
+    }
+}
+// Call the function to fetch and display matches
+fetchAndDisplayMatches();

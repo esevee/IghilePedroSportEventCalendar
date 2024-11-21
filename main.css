@@ -60,14 +60,14 @@ nav {
   .navLinks {
       display: none;
       flex-direction: column;
-      background-color: #333;
+      background-color: #20215a;
       position: absolute;
       top: 60px;
       right: 20px;
       width: 200px;
       border-radius: 5px;
       padding: 10px 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(206, 199, 250, 0.1);
   }
 
   .navLinks.active {
@@ -127,3 +127,17 @@ button:hover {
   margin-top: 20px;
 }
 
+.formContainer{
+  background-color: #18184e;
+  border: 2px rgb(32, 5, 114) solid;
+  
+  
+}
+
+form { /*form starts*/
+  margin: 20px auto;
+  max-width: 700px;
+  /*display: flex;*/
+  flex-direction: column;
+  gap: 10px;
+}
