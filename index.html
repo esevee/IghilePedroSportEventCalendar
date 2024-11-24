@@ -24,12 +24,31 @@
           <a href="details.html">Details</a>
       </div>
   </nav><!--end of navbar-->
+  <div class="banner"> <!--Banner/hero-->
+    <h1>Top Sports Event Calendar</h1>
+    <p>sports for the mind</p>
+  </div><!--end of Banner/hero-->
 
-  <h1>Top Sports Event Calendar</h1>
 
-  <div id="calendar" class="calendar"></div>
-  
-  <h2>Add a sport event</h2>
+<div class="grid-container">
+  <div class="mainHeader">
+    World Sport Events
+  </div>
+  <div class="menu">
+    <!--sample of events-->
+    <div class="sampleEvent"></div>
+    <div class="sampleContainer">
+      <h1>Matches</h1>
+      <div id="matches"></div>
+    </div>
+  </div>
+  <div class="mainCalendar">
+    <h1>Top Sports Event Calendar</h1>
+    <div id="calendar" class="calendar"></div>
+    <div id="eventDetails" class="detailsOfEvent"></div><!--marked Event-->
+  </div>  
+  <div class="addSportEvent">
+    <h2>Add a sport event</h2>
   <div class="formContainer">
     <form id="eventForm"> <!--users input for a new event  date, time, sport, teams/participants-->
       <input type="date" id="eventDate" required>
@@ -39,18 +58,16 @@
       <button type="submit">Add Event</button>
     </form>
   </div>
-  
-  <div id="eventDetails" class="detailsOfEvent"></div>
-
-  <div class="sampleEvent"></div>
-
-  <!--sample of events-->
-  <div class="sampleContainer">
-    <h1>Matches</h1>
-  <div id="matches"></div>
   </div>
-
-  
+  <footer class="footer"><!--footer-->
+    <p>&copy; 2024 SportRadar. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#privacy">Privacy Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </footer><!--footer ends-->
+</div>
 
 
   <script src="main.js"></script>
