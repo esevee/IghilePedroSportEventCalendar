@@ -1,0 +1,241 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    padding-bottom: 70px;
+  }
+
+
+.header-nav-container {
+  display: flex;
+  flex-direction: column;
+}
+/*header*/
+header {
+  position: fixed;
+  top: 0; 
+  z-index: 5;
+}
+/*Navbar zone*/
+.logo img {
+  height: 50px; 
+  width: auto;
+  transition: all 0.3s ease; 
+}
+nav {
+  background-color: #20215a;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;         
+  left: 0;       
+  width: 100%;   
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky; 
+  top: 0;           
+  z-index: 10;      
+}
+
+.navLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.navLinks a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: #d27b18;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+}/*end of hamburger*/
+
+/* Media query Mobile view: navbar */
+@media (max-width: 768px) {
+  .navLinks {
+      display: none;
+      flex-direction: column;
+      background-color: #20215a;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 200px;
+      border-radius: 5px;
+      padding: 10px 0;
+      box-shadow: 0 4px 6px rgba(206, 199, 250, 0.1);
+  }
+
+  .navLinks.active {
+      display: flex;
+  }
+
+  .hamburger {
+      display: flex;
+  }
+}/* Media query Mobile view: navbar/hamburger ends */
+
+/*Header/hero*/
+header{
+  background-image: url(../img/heroImg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height:50vh;
+  position: relative;
+}
+
+.calendar { /*grid format*/
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  max-width: 300px;
+  margin: 20px auto;
+}
+.day, .header {
+  padding: 8px;
+  border: 1px solid #d27b18;
+  border-radius: 10px;
+  text-align: center;
+}
+.header {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+.day {
+  background-color: #fff;
+}
+.eventDay {
+  background-color: #d27b18;
+  cursor: pointer;
+}
+.eventDay:hover {
+  background-color: #c68f50;
+  border-radius: 8px;
+}
+
+input, button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+button {
+  background-color: #18184e;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgba(24,24,78, 0.7);
+}
+.detailsOfEvent {
+  margin-top: 20px;
+}
+
+form { /*form starts*/
+  margin: 20px auto;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* grid*/
+.mainHeader { grid-area: header; }
+.menu { grid-area: menu; }
+.mainCalendar { grid-area: main; }
+.addSportEvent { grid-area: right; }
+.footer { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  gap: 1px;
+  padding: 1px;
+  min-height: 100vh;
+}
+
+.grid-container > div{
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 15px;
+}
+
+/*grid container responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      'header'
+      'menu'
+      'main'
+      'right'
+      'footer';
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container > div {
+    font-size: 20px; 
+  }
+}
+
+/* Footer styling */
+footer.footer {
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  background-color: #20215a; 
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+  box-shadow: 0 -2px 5px rgba(217, 208, 247, 0.2);
+  z-index: 100;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
