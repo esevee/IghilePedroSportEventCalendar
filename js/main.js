@@ -162,5 +162,72 @@ let events = {
         console.error('Error fetching or displaying matches:', error);
     }
 }
+
+// Countdown Timer 
+function updateCountdowns() {
+  const today = new Date();
+  const countdownContainer = document.getElementById("countdownContainer");
+  countdownContainer.innerHTML = ""; // Clear existing countdowns
+
+  Object.keys(events).forEach((date) => {
+    const eventDate = new Date(date);
+    if (eventDate >= today) {
+      const diff = eventDate - today;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const countdownText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      // Create an element for the countdown
+      const countdownElement = document.createElement("div");
+      countdownElement.className = "countdown";
+      countdownElement.textContent = `The main Sport after today is ${events[date][0]}: ${countdownText}`;
+
+      countdownContainer.appendChild(countdownElement);// append the countdown element to countdownContainer
+    }
+  });
+}
+
+// show event details to include countdown
+function showEventDetails(date) {
+  const eventDetailsElement = document.getElementById("eventDetails");
+  eventDetailsElement.innerHTML = `<h3>Events on ${date}</h3>`;
+  events[date].forEach((event) => {
+    const eventItem = document.createElement("p");
+    eventItem.textContent = event;
+    eventDetailsElement.appendChild(eventItem);
+  });
+
+  const today = new Date();
+  const eventDate = new Date(date);
+
+  if (eventDate >= today) { //to capture future date
+    const diff = eventDate - today;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    const countdownText = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    const countdownElement = document.createElement("p");
+    countdownElement.className = "eventCountdown";
+    countdownElement.textContent = countdownText;
+
+    eventDetailsElement.appendChild(countdownElement);
+  }
+}
+
+// calendar and timers
+generateCalendar();
+
+updateCountdowns();
+
+// updating countdown timers every second
+setInterval(updateCountdowns, 1000);
+
 // Call the function to fetch and display matches
 fetchAndDisplayMatches();
