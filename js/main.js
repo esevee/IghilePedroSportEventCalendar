@@ -184,7 +184,7 @@ function updateCountdowns() {
       // Create an element for the countdown
       const countdownElement = document.createElement("div");
       countdownElement.className = "countdown";
-      countdownElement.textContent = `The main Sport after today is ${events[date][0]}: ${countdownText}`;
+      countdownElement.textContent = `Countdown to the ${events[date][0]} match: ${countdownText}`;
 
       countdownContainer.appendChild(countdownElement);// append the countdown element to countdownContainer
     }
@@ -220,6 +220,37 @@ function showEventDetails(date) {
     eventDetailsElement.appendChild(countdownElement);
   }
 }
+
+//nav bars
+document.addEventListener("DOMContentLoaded", function() {
+  // get elements for calendar and add event pages
+  const calendarPage = document.getElementById('calendarPage');
+  const addEventPage = document.getElementById('addEventPage');
+  
+  // getting nav links
+  const calendarNav = document.getElementById('calendarNav');
+  const addEventNav = document.getElementById('addEventNav');
+  
+  // shows calendar page by default
+  calendarPage.style.display = "block";
+  addEventPage.style.display = "none";
+
+  // add event listener to the calendar link
+  calendarNav.addEventListener('click', function(e) {
+    e.preventDefault();
+    calendarPage.style.display = "block";
+    addEventPage.style.display = "none";
+  });
+  
+  // add event listener to the add event link
+  addEventNav.addEventListener('click', function(e) {
+    e.preventDefault();
+    calendarPage.style.display = "none";
+    addEventPage.style.display = "block";
+  });
+});
+//end of nav bars
+
 
 // calendar and timers
 generateCalendar();
