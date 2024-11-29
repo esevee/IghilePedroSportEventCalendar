@@ -34,27 +34,55 @@
   </div>
 
 
-  <footer class="footer"><!--footer-->
-    <div class="privacyContact">
-      <p>&copy; 2024 SportRadar. All rights reserved.</p>
-      <ul class="footer-links">
-        <li><a href="#privacy">Privacy Policy</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
+  <footer class="footer py-4"> <!--Footer starts-->
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <!-- Privacy and Contact Section -->
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <p class="mb-1">&copy; 2024 SportRadar. All rights reserved.</p>
+          <ul class="footer-links list-inline">
+            <li class="list-inline-item me-3">
+              <a href="#privacy-policy" onclick="document.getElementById('privacy-policy').style.display='block'" class="text-white">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="contact.html" class="text-white">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <!--privacy Policy-->
+        <div id="privacy-policy">
+          <h3>Privacy Policy</h3>
+          <p><strong>Event Sport New Policy:</strong> 29.11.2024</p>
+          <p>We are committed to protecting your privacy. When you use our Sport Event Calendar, we may collect personal information such as your name, email, event details (date, time, sport, participants), etc. We use this information to display your event and improve our service.</p>
+          <p>We do not sell or share your personal information with third parties, except when necessary for providing services or as required by law.</p>
+          <p>We use reasonable security measures to protect your data, but no method of data transmission is 100% secure.</p>
+          <p>If you have any questions about this policy, contact us at info@sportevent.at</p>
+          <button id="policy" onclick="document.getElementById('privacy-policy').style.display='none'">Close</button>
+        </div>
+        <!-- Social Media Section -->
+        <div class="col-12 col-md-6">
+          <p class="mb-2">Connect with us on social media!</p>
+          <div class="social-icons d-flex justify-content-center justify-content-md-start">
+            <a href="https://facebook.com" target="_blank" class="me-3">
+              <img src="img/imgFb.png" alt="Facebook" class="img-fluid" style="max-width: 30px;">
+            </a>
+            <a href="https://twitter.com" target="_blank" class="me-3">
+              <img src="img/imgX.png" alt="Twitter" class="img-fluid" style="max-width: 30px;">
+            </a>
+            <a href="https://instagram.com" target="_blank" class="me-3">
+              <img src="img/imgInsta.png" alt="Instagram" class="img-fluid" style="max-width: 30px;">
+            </a>
+            <a href="https://youtube.com" target="_blank" class="me-3">
+              <img src="img/imgYt.png" alt="YouTube" class="img-fluid" style="max-width: 30px;">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+              <img src="img/imgIn.png" alt="LinkedIn" class="img-fluid" style="max-width: 30px;">
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="social-icons"> <!--social media-->
-      <p>Connect with us on social media!</p>
-      <a href="https://facebook.com" target="_blank">
-        <img src="img/imgFb.png" alt="Facebook">
-      </a>
-      <a href="https://twitter.com" target="_blank">
-        <img src="img/imgX.png" alt="imgX">
-      </a>
-      <a href="https://instagram.com" target="_blank">
-        <img src="img/imgInsta.png" alt="Instagram">
-      </a>
-    </div>
-  </footer><!--footer ends-->
+  </footer><!--Footer ends-->
     
   <script src="js/eventDetails.js"></script>
 </body>

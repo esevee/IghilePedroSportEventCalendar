@@ -8,9 +8,9 @@
 function toggleMenu() {
   const navLinks = document.querySelector('.navLinks');
   navLinks.classList.toggle('active');
-}
+}//nav bar ends
 
-// Lists of events/ date and sport
+// Lists of events/ date and sport/input format
 let events = {
     "2024-11-06": ["Football (12:12 pm) - 22"],
     "2024-11-23": ["Marathon (11:12 pm) - 15"],
@@ -19,28 +19,28 @@ let events = {
     "2024-11-21": ["MMA (05:30 pm) - 2"],
   };
   
-  // Generate the calendar
+  // Generate the calendar/generateCalendar generates a calendar for the current month and displays it in an HTML element
   function generateCalendar() {
     const calendarElement = document.getElementById("calendar");
     calendarElement.innerHTML = ""; // to empty the calendar
-    const today = new Date();
-    const year = today.getFullYear();
+    const today = new Date(); // obtaining current date
+    const year = today.getFullYear();//current date and extracts the year and month values to generate the calendar for the current month
     const month = today.getMonth();
   
-    // Calendar headers
+    // Add calendar headers
     const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     daysOfWeek.forEach(day => {
       const header = document.createElement("div");
       header.className = "header";
       header.textContent = day;
-      calendarElement.appendChild(header);
+      calendarElement.appendChild(header);//each day is added as a <div> with a class of header
     });
   
-    // First day and days in the month
+    // Calculate first day and number of days in the month// calculating first day and days in the month
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
   
-    //loop to fill empty days
+    // //loop to fill empty days before the first day
     for (let i = 0; i < (firstDay === 0 ? 6 : firstDay - 1); i++) {
       const blankDay = document.createElement("div");
       blankDay.className = "day";
@@ -55,9 +55,11 @@ let events = {
       dayElement.className = "day";
       dayElement.textContent = day;
   
-      // mark event days
+      // checking if there are events on this date
       if (events[date]) {
         dayElement.className += " eventDay";
+        dayElement.title = events[date].join("\n"); // add event details as tooltip
+  
         dayElement.addEventListener("click", () => {
           showEventDetails(date);
         });
@@ -66,6 +68,7 @@ let events = {
       calendarElement.appendChild(dayElement);
     }
   }
+  
   
   // Show event details
   function showEventDetails(date) {
@@ -85,13 +88,13 @@ let events = {
   document.getElementById("eventForm").addEventListener("submit", (e) => {
     e.preventDefault();
   
-    const date = document.getElementById("eventDate").value;
+    const date = document.getElementById("eventDate").value; //retrieves form inputs
     const time = document.getElementById("eventTime").value;
     const sport = document.getElementById("sportName").value;
     const participants = document.getElementById("participants").value;
   
-    if (date && time && sport && participants) {
-      const eventDetails = `${sport} (${time}) - ${participants}`;
+    if (date && time && sport && participants) { //form inputs authentication and validation, check if any field is empty
+      const eventDetails = `${sport} (${time}) - ${participants}`; // adding event to event object, after formating
       if (events[date]) {
         events[date].push(eventDetails);
       } else {

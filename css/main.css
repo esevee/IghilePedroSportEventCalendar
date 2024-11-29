@@ -58,19 +58,6 @@ nav {
   color: #d27b18;
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-}/*end of hamburger*/
-
 /* Media query Mobile view: navbar */
 @media (max-width: 768px) {
   .navLinks {
@@ -95,6 +82,20 @@ nav {
   }
 }/* Media query Mobile view: navbar/hamburger ends */
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+}/*end of hamburger*/
+
+
 /*Header/hero*/
 header{
   background-image: url(../img/heroImg.jpg);
@@ -104,18 +105,68 @@ header{
   height:50vh;
   position: relative;
 }
+/*mainHeaderNav*/
 
+/* individual Buttons */
+.mainHeader a {
+  display: inline-block; 
+  padding: 0.5rem 1rem; 
+  font-size: 1rem; 
+  text-decoration: none; 
+  color: white; /* Text color */
+  background-color: #20215a; 
+  border: none; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  text-align: center; 
+}
+
+/* effect for Buttons */
+.mainHeader a:hover {
+  background-color: white; 
+  color: #20215a;
+}
+
+/* add dividers between Buttons */
+.mainHeader a:not(:last-child) {
+  border-right: 2px solid white; 
+}
+
+/* active button*/
+.mainHeader a.active {
+  background-color: white; 
+  color: #004080;
+}
+
+/* responsive design */
+@media (max-width: 768px) {
+  .mainHeader {
+    flex-direction: column; 
+  }
+  .mainHeader a:not(:last-child) {
+    border-right: none; 
+    border-bottom: 2px solid white; 
+  }
+}
+
+/*calendar*/
 .calendar { /*grid format*/
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 4px;
-  max-width: 300px;
+  max-width: 500px;
   margin: 20px auto;
 }
+
+/*calendar media query*/
+@media (max-width: 480px) {
+  .calendar {
+    grid-template-columns: repeat(3, 1fr); /* three columns instead of 7 */
+  }
+}/*calendar ends*/
 .day, .header {
   padding: 8px;
   border: 1px solid #d27b18;
-  border-radius: 10px;
+  border-radius: 2px;
   text-align: center;
 }
 .header {
@@ -132,7 +183,7 @@ header{
 }
 .eventDay:hover {
   background-color: #c68f50;
-  border-radius: 8px;
+  border-radius: 2px;
   transform: scale(1.05);
 }
 
@@ -163,7 +214,7 @@ form { /*form starts*/
 }
 
 /* grid*/
-.mainHeader { grid-area: header; }
+.mainHeader { grid-area: header; justify-content: center; }
 .menu { grid-area: menu; }
 .mainCalendar { grid-area: main; }
 .addSportEvent { grid-area: right; }
@@ -188,14 +239,14 @@ form { /*form starts*/
   font-size: 15px;
 }
 
-/*grid container responsive layout for smaller screens */
+/*grid container responsive layout for smaller screens, calendar appears first */
 @media (max-width: 768px) {
   .grid-container {
     grid-template-areas:
       'header'
-      'menu'
       'main'
       'right'
+      'menu'
       'footer';
     grid-template-columns: 1fr;
   }
@@ -232,7 +283,7 @@ form { /*form starts*/
 }
 /*eventDetail Page ends*/
 
-/* Footer */
+/* Footer starts*/
 footer.footer {
   display: flex;
   justify-content: space-around;
@@ -295,4 +346,55 @@ footer.footer {
 
 .social-icons img:hover {
   transform: scale(1.2);
+}
+
+/*privacy policy*/
+#privacy-policy{
+  display:none; 
+  padding: 20px; 
+  border: 1px solid white;
+}
+#policy{
+  background-color:#20215a;
+  padding: 8px 25px;
+}
+/**/
+@media (max-width: 768px) {
+  #privacy-policy {
+    width: 90%;
+    padding: 15px;
+  }
+
+  #privacy-policy h3 {
+    font-size: 20px;
+  }
+
+  #privacy-policy p {
+    font-size: 14px;
+  }
+
+  #privacy-policy button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {/*privacy policy*/
+  #privacy-policy {
+    width: 95%;
+    padding: 30px 10px;
+    
+  }
+
+  #privacy-policy h3 {
+    font-size: 18px;
+  }
+
+  #privacy-policy p {
+    font-size: 12px;
+  }
+
+  #privacy-policy button {
+    padding: 15px;
+  }
 }
