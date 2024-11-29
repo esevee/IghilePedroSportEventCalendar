@@ -59,25 +59,34 @@
   <div class="addSportEvent" id="addEventPage">
     <h2>Add a sport event</h2>
     <div class="formContainer">
-      <form id="eventForm"> <!--users input for a new event  date, time, sport, teams/participants-->
+      <form id="eventForm"><!--form/inputs-->
+        <label for="eventDate">Date:</label>
         <input type="date" id="eventDate" required>
+      
+        <label for="eventTime">Time:</label>
         <input type="time" id="eventTime" required>
+      
+        <label for="sportName">Sport:</label>
         <input type="text" id="sportName" placeholder="Sport Name" required>
+      
+        <label for="participants">Teams/Participants:</label>
         <input type="text" id="participants" placeholder="Teams/Participants" required>
+      
         <button type="submit">Add Event</button>
       </form>
+      
     </div>
   </div>
   <footer class="footer"><!--footer-->
     <div class="privacyContact">
-    <p>&copy; 2024 SportRadar. All rights reserved.</p>
+      <p>&copy; 2024 SportRadar. All rights reserved.</p>
       <ul class="footer-links">
         <li><a href="#privacy">Privacy Policy</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </div>
-    <p>Connect with us on social media!</p>
     <div class="social-icons"> <!--social media-->
+      <p>Connect with us on social media!</p>
       <a href="https://facebook.com" target="_blank">
         <img src="img/imgFb.png" alt="Facebook">
       </a>

@@ -128,10 +128,12 @@ header{
 .eventDay {
   background-color: #d27b18;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 .eventDay:hover {
   background-color: #c68f50;
   border-radius: 8px;
+  transform: scale(1.05);
 }
 
 input, button {
@@ -203,8 +205,38 @@ form { /*form starts*/
   }
 }
 
+/*eventDetail Page starts*/
+.eventDetailsContainer {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.eventItem {
+  margin-bottom: 15px;
+}
+
+.eventItem h3 {
+  margin-top: 0;
+}
+
+.eventDetailsContainer a {
+  display: inline-block;
+  margin-top: 15px;
+  color: white;
+  text-decoration: none;
+  background-color: #18184e;
+  padding: 10px;
+}
+/*eventDetail Page ends*/
+
 /* Footer */
 footer.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   position: fixed; 
   bottom: 0; 
   left: 0; 
@@ -218,10 +250,14 @@ footer.footer {
   z-index: 100;
 }
 
+.privacyContact {
+  display: flex; 
+  flex-direction: column;
+}
 .footer-links {
   list-style: none;
   padding: 0;
-  margin: 10px 0 0;
+  margin: 0;
   display: flex;
   justify-content: center;
   gap: 15px;

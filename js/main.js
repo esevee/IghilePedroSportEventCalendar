@@ -12,11 +12,11 @@ function toggleMenu() {
 
 // Lists of events/ date and sport
 let events = {
-    "2024-11-06": ["Football Match"],
-    "2024-11-23": ["Marathon"],
-    "2024-11-08": ["Basketball"],
-    "2024-11-30": ["Boxing"],
-    "2024-11-21": ["MMA"],
+    "2024-11-06": ["Football (12:12 pm) - 22"],
+    "2024-11-23": ["Marathon (11:12 pm) - 15"],
+    "2024-11-08": ["Basketball (3:00 pm) - Team A vs Team B"],
+    "2024-11-30": ["Boxing (12:12 pm) - 2"],
+    "2024-11-21": ["MMA (05:30 pm) - 2"],
   };
   
   // Generate the calendar
@@ -69,13 +69,16 @@ let events = {
   
   // Show event details
   function showEventDetails(date) {
-    const eventDetailsElement = document.getElementById("eventDetails");
-    eventDetailsElement.innerHTML = `<h3> Events on ${date}</h3>`;
-    events[date].forEach(event => {
-      const eventItem = document.createElement("p");
-      eventItem.textContent = event;
-      eventDetailsElement.appendChild(eventItem);
-    });
+    const eventsOnDate = events[date];
+    if (!eventsOnDate) return;
+  
+    // Format the event details to pass to the event details page
+    const eventDetailsUrl = `eventDetails.html?date=${encodeURIComponent(date)}`;
+    const eventDetailsParams = eventsOnDate
+      .map((event, index) => `event${index}=${encodeURIComponent(event)}`)
+      .join("&");
+  
+    window.location.href = `${eventDetailsUrl}&${eventDetailsParams}`;
   }
   
   // collecting event inputs and new event submission
@@ -193,6 +196,9 @@ function updateCountdowns() {
 
 // show event details to include countdown
 function showEventDetails(date) {
+  const event = events[date][0]; // assuming a single event per day for simplicity
+  const eventDetailsUrl = `eventDetails.html?date=${encodeURIComponent(date)}&event=${encodeURIComponent(event)}`; //eventDetailsPageParams
+  window.location.href = eventDetailsUrl;
   const eventDetailsElement = document.getElementById("eventDetails");
   eventDetailsElement.innerHTML = `<h3>Events on ${date}</h3>`;
   events[date].forEach((event) => {
@@ -235,14 +241,14 @@ document.addEventListener("DOMContentLoaded", function() {
   calendarPage.style.display = "block";
   addEventPage.style.display = "none";
 
-  // add event listener to the calendar link
+  // adding event listener to the calendar link
   calendarNav.addEventListener('click', function(e) {
     e.preventDefault();
     calendarPage.style.display = "block";
     addEventPage.style.display = "none";
   });
   
-  // add event listener to the add event link
+  // adding event listener to the add event link
   addEventNav.addEventListener('click', function(e) {
     e.preventDefault();
     calendarPage.style.display = "none";
@@ -250,7 +256,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 //end of nav bars
-
 
 // calendar and timers
 generateCalendar();
