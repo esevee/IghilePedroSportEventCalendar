@@ -153,7 +153,7 @@ let events = {
                matchDiv.innerHTML = `
                 <div class="card shadow mb-4">
                     <div class="card-body">
-                        <h3 class="card-title text-primary">${homeTeam} vs ${awayTeam}</h3>
+                        <h3 class="card-title" id="cardTitle">${homeTeam} vs ${awayTeam}</h3>
                         <p class="card-text"><strong>Date:</strong> ${dayName}. ${dateVenue}</p>
                         <p class="card-text"><strong>Time:</strong> ${match.timeVenueUTC}</p>
                         <p class="card-text"><strong>Sport:</strong> ${match.sport}</p>

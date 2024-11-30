@@ -9,7 +9,6 @@ body {
     padding-bottom: 150px;
   }
 
-
 .header-nav-container {
   display: flex;
   flex-direction: column;
@@ -94,7 +93,6 @@ nav {
   height: 3px;
   background-color: #fff;
 }/*end of hamburger*/
-
 
 /*Header/hero*/
 header{
@@ -207,13 +205,41 @@ button:hover {
 
 form { /*form starts*/
   margin: 20px auto;
-  max-width: 700px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* grid*/
+label { /*label inside the form*/
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/*form input*/
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: inset 0 1px 3px rgba(68, 68, 68, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*sample matches cardTitle*/
+#cardTitle {
+  color:#d27b18;
+}
+/* grid container*/
 .mainHeader { grid-area: header; justify-content: center; }
 .menu { grid-area: menu; }
 .mainCalendar { grid-area: main; }
