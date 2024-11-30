@@ -57,6 +57,88 @@ nav {
   color: #d27b18;
 }
 
+.searchContainer {/*searchBar starts*/
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.searchInput {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #d5d4d4;
+  margin-right: 5px;
+}
+
+.searchButton {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #d27b18;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #f89422; 
+} 
+/*searchBar ends*/
+
+@media (max-width: 480px) {
+  nav .logo img {
+    display: none;
+  }}
+
+@media (max-width: 768px) {
+  nav .logo img {
+    max-height: 30px; /* Smaller logo size for tablets and phones */
+    
+  }}  
+
+/*searchBar media query*/
+@media (max-width: 768px) {
+  #searchContainer {
+    max-height: 30px;
+    flex-direction: row; 
+    align-items: stretch; 
+  }
+
+  #searchInput {  
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  #searchButton { /* search button */
+    margin-left: 0; 
+    font-size: 16px;
+    text-align: center;
+  }
+
+  #matches {
+    padding: 15px; 
+  }
+}
+
+@media (max-width: 480px) { /*font size for smaller screens */
+  #searchInput {
+    font-size: 14px;
+    max-height: 30px; 
+  }
+
+  #searchButton {
+    font-size: 12px;
+    padding: 10px;
+    max-height: 30px;
+    padding-bottom: 25px;
+  }
+
+  .searchResult { 
+    font-size: 14px; 
+    padding: 8px;
+  }
+}
+
 /* Media query Mobile view: navbar */
 @media (max-width: 768px) {
   .navLinks {
@@ -102,6 +184,23 @@ header{
   background-repeat: no-repeat;
   height:50vh;
   position: relative;
+}
+.container-fluid{
+  margin-top: 50px;
+}
+
+/* main heading text */
+header h1 {
+  margin-top:20px;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* subheadings */
+header p {
+  font-size: 1.25rem;
+  margin: 5px 5px;
+
 }
 /*mainHeaderNav*/
 

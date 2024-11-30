@@ -259,6 +259,43 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 //end of nav bars
+//search bar
+document.getElementById("searchButton").addEventListener("click", () => {
+  const query = document.getElementById("searchInput").value.toLowerCase().trim();
+  const resultsContainer = document.getElementById("matches"); 
+
+  resultsContainer.innerHTML = ""; // remove initial result
+
+  if (!query) {
+    resultsContainer.innerHTML = "<p>Please enter a search term.</p>";
+    return;
+  }
+
+  const results = [];
+  Object.keys(events).forEach((date) => {
+    events[date].forEach((event) => {
+      if (event.toLowerCase().includes(query)) {
+        results.push({ date, event });
+      }
+    });
+  });
+
+  // display results
+  if (results.length > 0) {
+    resultsContainer.innerHTML = "<h3>Search Results:</h3>";
+    results.forEach((result) => {
+      const resultItem = document.createElement("div");
+      resultItem.className = "searchResult";
+      resultItem.innerHTML = `
+        <strong>Date:</strong> ${result.date} <br>
+        <strong>Event:</strong> ${result.event}
+      `;
+      resultsContainer.appendChild(resultItem);
+    });
+  } else {
+    resultsContainer.innerHTML = "<p>No events found.</p>";
+  }
+});
 
 // calendar and timers
 generateCalendar();

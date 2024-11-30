@@ -14,30 +14,28 @@
   <div class="header-nav-container"><!--navbar and Header container-->
     <!--Navbar-->
     <nav>
-    <div class="logo">
-      <a href="index.html"><img src="./img/logoSport.png" alt="logo"></a>
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <div class="navLinks">
-        <a href="#" id="juj">Calendar</a>
-        <a href="#" id="ju">Add Event</a>
-    </div>
+      <div class="logo">
+        <a href="index.html"><img src="./img/logoSport.png" alt="logo"></a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+      <div class="searchContainer" id="searchContainer">
+        <input type="text" id="searchInput" placeholder="Search events" class="searchInput">
+        <button type="button" id="searchButton" class="searchButton">Search</button>
+      </div>
     </nav><!--end of navbar-->
      <!--header/hero section-->
     <header class="p-4 text-white">
       <div class="container-fluid">
-          <h1 class="display-5 fw-bold">Top Sport Events</h1>
-          <p class="col-md-8 fs-5 lead">Never miss a game!</p>
-          <p class="col-md-8 fs-5 lead"> Explore our Sports Event Calendar for the latest matches</p>
+        <h1 class="display-5 fw-bold">Top Sport Events</h1>
+        <p class="col-md-8">Never miss a game!</p>
+        <p class="col-md-8">Explore our Sports Event Calendar for the latest matches</p>
       </div>
     </header>  
-  </div>
- 
-
+  </div><!--navbar and Header container ends-->
 <div class="grid-container">
   <div class="mainHeader">
     <a href="#" id="calendarNav">Calendar</a>
