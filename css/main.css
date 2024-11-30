@@ -91,7 +91,7 @@ nav {
 
 @media (max-width: 768px) {
   nav .logo img {
-    max-height: 30px; /* Smaller logo size for tablets and phones */
+    max-height: 30px; /*smaller logo size for tablets and phones */
     
   }}  
 

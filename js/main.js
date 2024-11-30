@@ -12,11 +12,11 @@ function toggleMenu() {
 
 // Lists of events/ date and sport/input format
 let events = {
-    "2024-11-06": ["Football (12:12 pm) - 22"],
-    "2024-11-23": ["Marathon (11:12 pm) - 15"],
-    "2024-11-08": ["Basketball (3:00 pm) - Team A vs Team B"],
-    "2024-11-30": ["Boxing (12:12 pm) - 2"],
-    "2024-11-21": ["MMA (05:30 pm) - 2"],
+    "2024-12-02": ["Football (12:12 pm) - 22"],
+    "2024-12-23": ["Marathon (11:12 pm) - 15"],
+    "2024-12-08": ["Basketball (3:00 pm) - Team A vs Team B"],
+    "2024-12-30": ["Boxing (12:12 pm) - 2"],
+    "2024-12-30": ["MMA (05:30 pm) - 2"],
   };
   
   // Generate the calendar/generateCalendar generates a calendar for the current month and displays it in an HTML element
